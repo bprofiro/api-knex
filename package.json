@@ -1,0 +1,17 @@
+{
+  "name": "api-knex",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.21.2",
+    "pg": "^8.3.0"
+  }
+}
