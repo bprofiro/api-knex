@@ -1,4 +1,6 @@
-exports.up = (knex) => {
+const { onUpdateTrigger } = require('../../../knexfile');
+
+exports.up = async (knex) => {
   return knex.schema.createTable('projects', (table) => {
     table.increments('id')
     table.text('title')
@@ -9,9 +11,9 @@ exports.up = (knex) => {
       .onDelete('CASCADE')
 
     table.timestamps(true, true)
-  });
+  }).then(() => knex.raw(onUpdateTrigger('projects')));
 };
 
-exports.down = (knex) => {
+exports.down = async (knex) => {
   return knex.schema.dropTable('projects')
 };
